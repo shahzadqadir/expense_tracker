@@ -1,0 +1,31 @@
+{% extends '_base.html' %}
+
+{% block title %}
+  Book Categories
+{% endblock %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h4>Book Categories</h4>
+    {% if categories %}
+      <table class="table table-sm table-striped mt-3">
+        <thead>          
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for category in categories %}
+          {% if category != "" %}
+          <tr>
+            <td>{{ category.id }}</td>
+            <td>{{ category.name|title }}</td>
+          </tr>
+          {% endif %}
+        {% endfor %}
+        </tbody>
+      </table>
+    {% endif %}
+  </div>
+{% endblock %}
