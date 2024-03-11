@@ -60,5 +60,21 @@ class BookDeleteView(LoginRequiredMixin, generic.DeleteView):
     template_name = "books/book_delete.html"
     context_object_name = "book"
     queryset = models.Book.objects.all()
+    
+    success_url = reverse_lazy("books_list")
 
+
+class BookCreateView(LoginRequiredMixin, generic.CreateView):
+    template_name = "books/book_create.html"
+    queryset = models.Book.objects.all()
+    fields = (
+        "serial",
+        "title",
+        "subtitle",
+        "authors",
+        "publisher",
+        "published_date",
+        "category",
+        "distribution_expense",
+    ) 
     success_url = reverse_lazy("books_list")
