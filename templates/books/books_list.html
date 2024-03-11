@@ -1,0 +1,45 @@
+{% extends '_base.html' %}
+
+{% block title %}
+  Books List
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h4>Books List</h4>
+    <table class="table table-sm">
+      <thead>
+        <tr>
+          <th class="col">Title</th>          
+          <th class="col">Authors</th>          
+          <th class="col">Published Date</th>
+          <th class="col">Category</th>          
+        </tr>
+      </thead>
+      <tbody>
+        {% for book in books %}
+          <tr>
+            <td width="450"><a class="a_no_underline" href="{% url 'book_detail' book.pk %}">{{book.title}}</a></td>
+            <td width="450">{{book.authors}}</td>
+            <td>{{book.published_date}}</td>
+            <td>{{book.category}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div style="display: flex; align-items: center;">
+      <div>
+      {% if page_obj.has_next %}
+        <a href="?page={{page_obj.next_page_number}}">Next</a> | 
+        <a href="?page={{page_obj.paginator.num_pages}}">Last</a> | 
+      {% endif %}
+      </div>
+      <div>
+      {% if page_obj.has_previous %}
+        <a href="?page={{page_obj.previous_page_number}}">Previous</a> | 
+        <a href="?page=1">First</a>
+      {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

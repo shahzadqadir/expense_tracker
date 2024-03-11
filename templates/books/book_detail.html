@@ -1,0 +1,25 @@
+{% extends '_base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+  <h1>{{ book.title }}</h1>
+  <h4>{{ book.subtitle }}</h4>
+  <div class="mt-5">
+    <ul>
+      <li class="no_bullets mt-1">By: {{ book.authors }}</li>
+      <li class="no_bullets mt-1"><strong>Category:</strong> {{ book.category|title }}</li>
+      <li class="no_bullets mt-1"><strong>Publisher: </strong>{{ book.publisher|title }}</li>
+      <li class="no_bullets mt-1"><strong>Published On: </strong>{{ book.published_date }}</li>
+      <li class="no_bullets mt-1"><strong>Distribution Expense</strong>  ${{ book.distribution_expense}}</li>
+    </ul> 
+  </div>
+
+  <div class="mt-5">
+    <a class="btn btn-outline-primary" href="{% url 'book_update' book.id %}">Update</a>
+    <a class="btn btn-outline-danger ml-5" href="{% url 'book_delete' book.id %}">Delete</a>
+  </div>
+ 
+</div>
+
+{% endblock %}

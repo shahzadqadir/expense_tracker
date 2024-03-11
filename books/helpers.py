@@ -48,18 +48,3 @@ def read_books(filename):
                 distribution_expense=Decimal(row[7]),
             ))
     return book_objs
-
-'''
-    serial = models.PositiveBigIntegerField(primary_key=True)
-    title = models.CharField(max_length=255)
-    subtitle = models.CharField(max_length=255)
-    authors = models.CharField(max_length=255)
-    publisher = models.CharField(max_length=255)
-    published_date = models.DateField(default=timezone.now)
-    category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name="books")
-    distribution_expense = models.DecimalField(max_digits=2, decimal_places=2)
-'''
-
-
-if __name__ == "__main__":
-    read_books("books_data.csv")
