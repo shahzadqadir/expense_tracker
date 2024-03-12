@@ -1,0 +1,18 @@
+{% extends '_base.html' %}
+
+{% block title %}Delete Category{% endblock %}
+
+{% block content %}
+
+  <div class="container mt-5">
+    <div>
+      <p>Are you sure you want to delete?</p>
+      <p>{{category.name}}</p>
+      <form action="" method="post">
+        {% csrf_token %}
+        <button class="btn btn-outline-danger" type="submit">Yes, Delete</button>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

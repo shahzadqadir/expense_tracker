@@ -1,4 +1,5 @@
 {% extends '_base.html' %}
+{% load crispy_forms_tags %}
 
 {% block title %}
   Books List
@@ -7,9 +8,18 @@
 {% block content %}
   <div class="container">
     <h4>Books List</h4>
-    <div>
-      <a class="btn btn-success" href="{% url 'book_create' %}">Add Book</a>
+    <div style="display: flex;">
+      <div><a class="btn btn-outline-success m-2" href="{% url 'book_create' %}">Add Book</a></div>
+      <div class="m-2">
+      <form action="" method="post">
+        {% csrf_token %}
+        <input class="form-control" type="text" name="q" placeholder="Search a book">   
+      </form>
+      </div>
     </div>
+    {% if books_found %}
+      <p>{{ books_found }} books found.</p>
+    {% endif %}
     <table class="table table-sm">
       <thead>
         <tr>

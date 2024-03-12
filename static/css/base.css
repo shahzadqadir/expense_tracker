@@ -13,3 +13,12 @@ h1{
 .no_bullets {
     list-style: none;
 }
+
+.home_bullets {
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: large;
+
+
+}

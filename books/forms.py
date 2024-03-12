@@ -19,3 +19,10 @@ class BookForm(forms.ModelForm):
         "category",
         "distribution_expense",
     ]
+
+
+class BookSearchForm(forms.Form):
+    search = forms.CharField(max_length=255,
+                             widget=forms.TextInput
+                             (attrs={"placeholder": "Search a book", "name": "q"}),
+                             label="")
